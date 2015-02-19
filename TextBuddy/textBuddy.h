@@ -17,7 +17,10 @@ public:
 	void storeInput();//fileToVector
 	void output();
 	void newFile();
-	//bool isExit(string);
+	void printSortedMessage();
+	void sorting();
+	bool isExit(string);
+	bool searchWord(string, vector<string>&);
 	bool convertToInt(string, int&);
 	bool readCommand(string);   //process command
 	bool txtFile(string);
@@ -26,7 +29,7 @@ public:
 	int _noOfLines;
 	vector <string> _vectorFile;
 	string _fileName;
-	
+	string lineNumber(int);
 };
 #endif
 

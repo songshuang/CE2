@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "textBuddy.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -49,7 +50,7 @@ bool TextBuddy::readCommand(string input){
 	}
 
 //check if command is exit
-/*bool TextBuddy::isExit(string input){
+bool TextBuddy::isExit(string input){
 	string command = getCommand(input);
 	if(command == "exit"){
 		return true;
@@ -57,7 +58,7 @@ bool TextBuddy::readCommand(string input){
 	else{
 		return false;
 	}
-}*/
+}
 
 //function for "add"
 void TextBuddy::addItem(string input){
@@ -176,7 +177,46 @@ bool TextBuddy::txtFile(string fileName){
 	}
 }
 
+//return line number for the item found
+string TextBuddy::lineNumber(int line ){
+	return _vectorFile[line-1];
+}
 
+//return isMatch if key word(s) can be found in the existing lines
+bool TextBuddy::searchWord( string keyWord, vector<string>& matchingLines){	
+	bool isMatch = false;
+	for (int index = 0; index < _vectorFile.size(); index++ ) {
+		if( _vectorFile[index].find(keyWord) != string::npos) {
+			isMatch = true;
+			cout << "result found: " << _vectorFile[index] << endl;
+			matchingLines.push_back(_vectorFile[index]);
+			}
+		}
+	return isMatch;
+}
+
+void TextBuddy::printSortedMessage()
+{
+	cout<< "sorted" << endl;
+}
+void TextBuddy::sorting(){
+	sort(_vectorFile.begin(), _vectorFile.end(), stringCompare);
+	printSortedMessage();
+	return;
+}
+
+//bool stringCompare function-credit to cplusplus.com
+bool stringCompare( const string& left, const string& right ){
+	for( string::const_iterator leftIter = left.begin(), rightIter = right.begin(); leftIter != left.end() && rightIter != right.end(); ++leftIter, ++rightIter ) {
+		if( tolower( *leftIter ) < tolower( *rightIter ) ) {
+			return true;
+		}else if( tolower( *leftIter ) > tolower( *rightIter ) )
+			return false;
+	}
+	if( left.size() < right.size() )
+		return true;
+   return false;
+}
 
 
 
