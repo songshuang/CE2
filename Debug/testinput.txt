@@ -1,0 +1,7 @@
+mytextfile2.txt
+add sarah
+add ben
+delete 2
+display
+clear
+exit

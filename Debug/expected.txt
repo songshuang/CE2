@@ -1,0 +1,7 @@
+Welcome to TextBuddy. mytextfile2.txt is ready for use
+command: added to mytextfile2.txt:"sarah"
+command: added to mytextfile2.txt:"ben"
+command: delete from mytextfile2.txt:"ben"
+command: 1. sarah
+command: all content deleted from mytextfile2.txt
+command: Press any key to continue . . . 
