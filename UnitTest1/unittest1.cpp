@@ -40,7 +40,7 @@ namespace UnitTest1
 															"unit testing now.",
 															"University is fun.",
 															};
-			test.sortLines();
+			test.sorting();
 
 			for(int j = 0; j < 8; j++) {
 				Assert::AreEqual(expectedAlphabeticallySortedLines[j],test.lineNumber(j+1));

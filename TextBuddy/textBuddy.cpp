@@ -42,6 +42,14 @@ bool TextBuddy::readCommand(string input){
 	else if(command == "clear"){
 		clear();
 	}
+	else if(command == "sort"){
+		sorting();
+	}
+	else if(command == "search"){
+		vector<string> matchingLines;
+		string keyWord = getInput(input);
+		searchWord( keyWord, matchingLines );
+	}
 	else{
 		return false;
 	}
